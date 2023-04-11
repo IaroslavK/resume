@@ -1,0 +1,68 @@
+{{!--
+Це леяут по замовчюванню, котрий вже містить базову структуру HTML документа
+І котрий обгортає код container файлів для будь-яких ендпоїнтів
+--}}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    {{page.title}}
+  </title>
+  <meta charset='utf-8' />
+  <link href='css/index.css' rel='stylesheet' />
+</head>
+
+
+
+<body>
+
+
+  {{#with person}}
+
+  <body>
+    <div>
+      <h1>{{name}}</h1>
+    </div>
+    <div>
+      <b>age: {{age}} / gender: {{gender}}</b>
+    </div>
+    <br>
+    <div>
+      {{#with address}}
+      <div>
+        <b>Address:</b>
+        {{street}},
+        {{city}},
+        {{state}},
+        {{zip}},
+        {{country}}
+      </div>
+      {{/with}}
+    </div>
+    <br>
+    <hr>
+
+    <div>
+      {{#each education}}
+      {{>title data='Education: ' }}
+      <div>
+        <p>Degree: {{degree}}</p>
+        <p>Major: {{major}}</p>
+        <p>University: {{university}}</p>
+        <p>Graduation year: {{graduationYear}}</p>
+      </div>
+      {{/each}}
+    </div>
+
+    <hr>
+  </body>
+  {{/with}}
+
+  {{! ↓ ця кострукція показує куди шаблонізатору треба вставляти код з container файлу --}}
+  {{{body}}}
+
+
+</body>
+
+</html>
