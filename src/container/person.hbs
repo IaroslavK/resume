@@ -4,48 +4,49 @@
 --}}
 
 <div>
-    <header>
-        {{#with person}}
 
-        <body>
-            <div>
-                <h1>{{name}}</h1>
-            </div>
-            <div>
-                <b>age: {{age}} / gender: {{gender}}</b>
-            </div>
-            <br>
-            <div>
-                {{#with address}}
-                <div>
-                    <b>Address:</b>
-                    {{street}},
-                    {{city}},
-                    {{state}},
-                    {{zip}},
-                    {{country}}
-                </div>
-                {{/with}}
-            </div>
-            <br>
-            <hr>
+    {{#with person}}
 
+    <body>
+        <div>
+            <h1>{{name}}</h1>
+        </div>
+        <div>
+            <b>age: {{age}} / gender: {{gender}}</b>
+        </div>
+        <br>
+        <div>
+            {{#with address}}
             <div>
-                {{#each education}}
-                {{>title data='Education: ' }}
-                <div>
-                    <p>Degree: {{degree}}</p>
-                    <p>Major: {{major}}</p>
-                    <p>University: {{university}}</p>
-                    <p>Graduation year: {{graduationYear}}</p>
-                </div>
-                {{/each}}
+                <b>Address:</b>
+                {{street}},
+                {{city}},
+                {{state}},
+                {{zip}},
+                {{country}}
             </div>
+            {{/with}}
+        </div>
+        <br>
+        <hr>
 
-            <hr>
-        </body>
-        {{/with}}
+        <div>
+            {{#each education}}
+            {{>title data='Education: ' }}
+            <div>
+                <p>Degree: {{degree}}</p>
+                <p>Major: {{major}}</p>
+                <p>University: {{university}}</p>
+                <p>Graduation year: {{graduationYear}}</p>
+            </div>
+            {{/each}}
+        </div>
+
+        <hr>
+    </body>
+    {{/with}}
     </header>
+
 
     {{#with person}}
     <main>
@@ -120,22 +121,17 @@
                         {{/each}}
                         {{/each}}
                         {{/each}}
-
                     </ul>
                     {{/each}}
                 </ul>
                 {{/each}}
-
             </div>
-
         </section>
-
-
     </main>
     {{/with}}
-</div>
 
-{{!--
-Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
-Адже наш layout/default.hbs має вже структуру HTML
---}}
+
+    {{!--
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+    --}}
