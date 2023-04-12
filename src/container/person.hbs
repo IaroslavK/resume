@@ -4,6 +4,49 @@
 --}}
 
 <div>
+    <header>
+        {{#with person}}
+
+        <body>
+            <div>
+                <h1>{{name}}</h1>
+            </div>
+            <div>
+                <b>age: {{age}} / gender: {{gender}}</b>
+            </div>
+            <br>
+            <div>
+                {{#with address}}
+                <div>
+                    <b>Address:</b>
+                    {{street}},
+                    {{city}},
+                    {{state}},
+                    {{zip}},
+                    {{country}}
+                </div>
+                {{/with}}
+            </div>
+            <br>
+            <hr>
+
+            <div>
+                {{#each education}}
+                {{>title data='Education: ' }}
+                <div>
+                    <p>Degree: {{degree}}</p>
+                    <p>Major: {{major}}</p>
+                    <p>University: {{university}}</p>
+                    <p>Graduation year: {{graduationYear}}</p>
+                </div>
+                {{/each}}
+            </div>
+
+            <hr>
+        </body>
+        {{/with}}
+    </header>
+
     {{#with person}}
     <main>
         <section>
