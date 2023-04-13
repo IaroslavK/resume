@@ -1,0 +1,90 @@
+{{!--
+Це код container файлу для index сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+--}}
+
+<div>
+
+    <head>
+        <h1>{{name}} <span class="badge bg-secondary">{{description}}</span></h1>
+        {{#with history}}
+        <h2> Year: <span class="badge bg-secondary">{{year}}</span></h2>
+        <h2> Founder: <span class="badge bg-secondary">{{founder}}</span></h2>
+        {{/with}}
+        <hr>
+    </head>
+
+    <body>
+        {{>title data='Types:' }}
+        <ul class="list-group">
+            {{#each types}}
+            <li class="list-group-item">{{this}}</li>
+            {{/each}}
+        </ul>
+        {{>title data='Syntax:' }}
+        {{#with syntax}}
+        <ul class="list-group">
+            <b>Variables:</b>
+            {{#each variables}}
+            <li class="list-group-item">{{this}}</li>
+            {{/each}}
+        </ul>
+        <ul class="list-group">
+            <b>Functions:</b>
+            {{#each functions}}
+            <li class="list-group-item">{{this}}</li>
+            {{/each}}
+        </ul>
+        <ul class="list-group">
+            <b>Conditionals:</b>
+            {{#each conditionals}}
+            <li class="list-group-item">{{this}}</li>
+            {{/each}}
+        </ul>
+        <ul class="list-group">
+            <b>Loops:</b>
+            {{#each loops}}
+            <li class="list-group-item">{{this}}</li>
+            {{/each}}
+        </ul>
+        <ul class="list-group">
+            <b>Classes:</b>
+            {{#each classes}}
+            <li class="list-group-item">{{this}}</li>
+            {{/each}}
+        </ul>
+        {{/with}}
+        {{>title data='Features:' }}
+        <ul class="list-group">
+            {{#each features}}
+            <li class="list-group-item">{{this}}</li>
+            {{/each}}
+        </ul>
+        {{>title data='Libraries:' }}
+        <ul class="list-group">
+            {{#each libraries}}
+            <li class="list-group-item">{{this}}</li>
+            {{/each}}
+        </ul>
+        {{>title data='Tools:' }}
+        <ul class="list-group">
+            {{#each tools}}
+            <li class="list-group-item">{{this}}</li>
+            {{/each}}
+        </ul>
+        {{>title data='Community:' }}
+        <ul class="list-group">
+            {{#each community}}
+            <li class="list-group-item">{{name}} - {{type}}</li>
+            {{/each}}
+        </ul>
+    </body>
+
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в
+
+<body>
+    Адже наш layout/default.hbs має вже структуру HTML
+    --}}
