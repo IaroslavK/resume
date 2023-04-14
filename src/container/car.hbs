@@ -1,0 +1,188 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+<div>
+
+    <head>
+        <h1>{{make}}</h1>
+        {{>title data=model big=true }}
+        {{>title data=year}}
+        {{>title data=color}}
+        <br>
+
+
+    </head>
+
+
+    <body>
+        <h2><b>Features:</b></h2>
+        <hr>
+        {{#with features}}
+
+        {{#with interior}}
+        <ul>
+            {{>title data='Interior:' big=true}}
+            {{#with seats}}
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Seats</li>
+                <li class="list-group-item">Material: <b>{{material}}</b></li>
+                <li class="list-group-item">Color: <b>{{color}}</b></li>
+                <li class="list-group-item">Heated: <b>{{#if heated}}Yes{{else}}No{{/if}}</b></li>
+                <li class="list-group-item">Ventilated: <b>{{#if ventilated}}Yes{{else}}No{{/if}}</b></li>
+            </ul>
+            {{/with}}
+            {{#with dashboard}}
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Dashboard</li>
+                <li class="list-group-item">material: <b>{{material}}</b></li>
+                <li class="list-group-item">Color: <b>{{color}}</b></li>
+                <li class="list-group-item">Display:
+                    <ul>
+                        {{#with display}}
+                        <li>type: <b>{{type}}</b></li>
+                        <li>size: <b>{{size}}</b></li>
+                        <li>resolution: <b>{{resolution}}</b></li>
+                        <li>touchscreen: <b>{{#if touchscreen}}Yes{{else}}No{{/if}}</b></li>
+                        {{/with}}
+                    </ul>
+                </li>
+            </ul>
+            {{/with}}
+            {{#with audio}}
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Audio</li>
+                <li class="list-group-item">System: <b>{{system}}</b></li>
+                <li class="list-group-item">Speakers: <b>{{speakers}}</b></li>
+                <li class="list-group-item">Subwoofer: <b>{{#if subwoofer}}Yes{{else}}No{{/if}}</b></li>
+                <li class="list-group-item">Bluetooth: <b>{{#if bluetooth}}Yes{{else}}No{{/if}}</b></li>
+                <li class="list-group-item">USB: <b>{{#if USB}}Yes{{else}}No{{/if}}</b></li>
+            </ul>
+            {{/with}}
+        </ul>
+        {{/with}}
+        <br>
+        <hr>
+        {{#with exterior}}
+        <ul>
+            {{>title data='Exterior:' big=true}}
+            {{#with wheels}}
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Wheels</li>
+                <li class="list-group-item">Size: <b>{{size}}</b></li>
+                <li class="list-group-item">Typer: <b>{{type}}</b></li>
+                <li class="list-group-item">Color: <b>{{color}}</b></li>
+            </ul>
+            {{/with}}
+            {{#with headlights}}
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Headlights</li>
+                <li class="list-group-item">Type: <b>{{type}}</b></li>
+                <li class="list-group-item">Brightness: <b>{{brightness}}</b></li>
+                <li class="list-group-item">Automatic: <b>{{#if automatic}}Yes{{else}}No{{/if}}</b></li>
+            </ul>
+            {{/with}}
+            {{#with sunroof}}
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Sunroof</li>
+                <li class="list-group-item">Type: <b>{{type}}</b></li>
+                <li class="list-group-item">Size: <b>{{size}}</b></li>
+                <li class="list-group-item">Automatic: <b>{{#if automatic}}Yes{{else}}No{{/if}}</b></li>
+            </ul>
+            {{/with}}
+        </ul>
+        {{/with}}
+        <br>
+        <hr>
+        {{#with safety}}
+        <ul>
+            {{>title data='Safety:' big=true}}
+            {{#with airbags}}
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Airbags</li>
+                <li class="list-group-item">Front: <b>{{front}}</b></li>
+                <li class="list-group-item">Side: <b>{{side}}</b></li>
+                <li class="list-group-item">kKnee: <b>{{knee}}</b></li>
+                <li class="list-group-item">Rear: <b>{{rear}}</b></li>
+            </ul>
+            {{/with}}
+            {{#with assistance}}
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Assistance</li>
+                <li class="list-group-item">Blind spot monitoring: <b>{{#if
+                        blind_spot_monitoring}}Yes{{else}}No{{/if}}</b></li>
+                <li class="list-group-item">Rear cross traffic alert: <b>{{#if
+                        rear_cross_traffic_alert}}Yes{{else}}No{{/if}}</b></li>
+                <li class="list-group-item">lane departure warning: <b>{{#if
+                        lane_departure_warning}}Yes{{else}}No{{/if}}</b></li>
+                <li class="list-group-item">Adaptive cruise control: <b>{{#if
+                        adaptive_cruise_control}}Yes{{else}}No{{/if}}</b></li>
+                <li class="list-group-item">Collision warning: <b>{{#if collision_warning}}Yes{{else}}No{{/if}}</b></li>
+            </ul>
+            {{/with}}
+        </ul>
+        {{/with}}
+
+
+        {{/with}}
+        <br>
+        <h2><b>Engine:</b></h2>
+        <hr>
+        {{#with engine}}
+        <ul class="list-group">
+            <li class="list-group-item active" aria-current="true">Engine</li>
+            <li class="list-group-item">Type: <b>{{type}}</b></li>
+            <li class="list-group-item">Displacement: <b>{{displacement}}</b></li>
+            <li class="list-group-item">Horsepower: <b>{{horsepower}}</b></li>
+            <li class="list-group-item">Torque: <b>{{torque}}</b></li>
+            <li class="list-group-item">Transmission:
+                <ul>
+                    {{#with transmission}}
+                    <li>type: <b>{{type}}</b></li>
+                    <li>gears: <b>{{gears}}</b></li>
+                    {{/with}}
+                </ul>
+            </li>
+        </ul>
+        {{/with}}
+        <br>
+        <h2><b>Fuel economy:</b></h2>
+        <hr>
+        {{#with fuel_economy}}
+        <ul class="list-group">
+            <li class="list-group-item active" aria-current="true">Fuel economy</li>
+            <li class="list-group-item">City: <b>{{city}}</b></li>
+            <li class="list-group-item">Highway: <b>{{highway}}</b></li>
+            <li class="list-group-item">Combined: <b>{{combined}}</b></li>
+            {{/with}}
+            <br>
+            <h2><b>Price:</b></h2>
+            <hr>
+            {{#with price}}
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Price</li>
+                <li class="list-group-item">Base: <b>{{base}}</b></li>
+                <li class="list-group-item">Destination: <b>{{destination}}</b></li>
+                <li class="list-group-item">Options:
+                    <ul>
+                        {{#with options}}
+                        <li>Navigation: <b>{{navigation}}</b></li>
+                        <li>Moonroof: <b>{{moonroof}}</b></li>
+                        <li>Premium paint: <b>{{premium_paint}}</b></li>
+                        {{/with}}
+                    </ul>
+                </li>
+            </ul>
+            <h3><b>Total: {{total}}</b></h3>
+            {{/with}}
+
+    </body>
+
+</div>
+
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
