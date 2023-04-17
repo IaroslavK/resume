@@ -22,7 +22,6 @@
             <li>Gender: <b>{{gender}}</b></li>
             <li>Age: <b>{{age}}</b></li>
             <li>Friends:
-
                 {{#each friends}}
                 <h4>ID: {{id}}</h4>
                 <ul>
@@ -38,34 +37,39 @@
                             <li>Age: <b>{{age}}</b></li>
                         </ul>
                         {{/each}}
-                    </li>
-                </ul>
 
-                {{#each groups}}
-            <li> Groups:
-                <h5>ID: {{id}}</h5>
-                <ul>
-                    <li>Name: <b>{{name}}</b></li>
-                    <li>Description: <b>{{description}}</b></li>
-                    <li>Members:
-                        {{#each members}}
-                        <h6>ID: {{id}}</h6>
+                    </li>
+                    {{#each groups}}
+                    <li>Groups:
+
+
+                        <h5>ID: {{id}}</h5>
+
                         <ul>
                             <li>Name: <b>{{name}}</b></li>
-                            <li>Gender: <b>{{gender}}</b></li>
-                            <li>Age: <b>{{age}}</b></li>
+                            <li>Description: <b>{{description}}</b></li>
+                            <li>Members:
+                                {{#each members}}
+                                <h6>ID: {{id}}</h6>
+                                <ul>
+                                    <li>Name: <b>{{name}}</b></li>
+                                    <li>Gender: <b>{{gender}}</b></li>
+                                    <li>Age: <b>{{age}}</b></li>
+                                </ul>
+                                {{/each}}
                         </ul>
-                        {{/each}}
 
                     </li>
+                    {{/each}}
                 </ul>
                 {{/each}}
-            </li>
-            {{/each}}
             </li>
             {{#each groups}}
             <li>Groups:
+
+
                 <h5>ID: {{id}}</h5>
+
                 <ul>
                     <li>Name: <b>{{name}}</b></li>
                     <li>Description: <b>{{description}}</b></li>
@@ -78,11 +82,9 @@
                             <li>Age: <b>{{age}}</b></li>
                         </ul>
                         {{/each}}
-
-                    </li>
                 </ul>
-                {{/each}}
             </li>
+            {{/each}}
         </ul>
         <hr>
         {{/each}}
