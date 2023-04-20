@@ -132,76 +132,24 @@
         <hr class="m-3">
 
         <section>
-            {{!-- <div class="col-12">
+            <div class="col-12">
                 <div class="row">
                     {{#each footer}}
-                    <div class="col-2 me-3 mb-2">
-                        <div class="row">
-                            <a href={{[0].link}}>{{[0].text}}</a>
-                        </div>
-                    </div>
-                    {{/each}}
-                    {{#each footer}}
-                    <div class="col-2 me-3 mb-2">
-                        <div class="row">
-                            <a href={{[1].link}}>{{[1].text}}</a>
-                        </div>
-                    </div>
-                    {{/each}}
-                    {{#each footer}}
-                    <div class="col-2 me-3 mb-2">
-                        <div class="row">
-                            <a href={{[2].link}}>{{[2].text}}</a>
-                        </div>
-                    </div>
-                    {{/each}}
-                    {{#each footer}}
-                    <div class="col-2 mx-2 mb-2">
-                        <div class="row">
-                            <a href={{[3].link}} class="nav-link disabled">{{[3].text}}</a>
-                        </div>
-                    </div>
-                    {{/each}}
+                    <div class="col-2">
+                        <div class="nav flex-column">
+                            <div class="nav-item">
+                                {{#each this}}
 
+                                <a href={{link}} {{#if @last}} class="nav-link disabled" {{else}} class="nav-link"
+                                    {{/if}}>
+                                    {{text}}</a>
+
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
                 </div>
-            </div> --}}
-            <div class="col-12 pe-5">
-
-
-                <div class="py-2 px-2">
-                    <div class="nav">
-                        {{#each footer}}
-                        <div class="nav-item col-2 me-2 mb-1">
-
-                            <a href={{[0].link}} class="nav-link">{{[0].text}}</a>
-
-                        </div>
-                        {{/each}}
-                        {{#each footer}}
-                        <div class="nav-item col-2 me-2 mb-1">
-
-                            <a href={{[1].link}} class="nav-link">{{[1].text}}</a>
-
-                        </div>
-                        {{/each}}
-                        {{#each footer}}
-                        <div class="nav-item col-2 me-2 mb-1">
-
-                            <a href={{[2].link}} class="nav-link">{{[2].text}}</a>
-
-                        </div>
-                        {{/each}}
-                        {{#each footer}}
-                        <div class="nav-item col-2 me-2 mb-1">
-
-                            <a href={{[3].link}} class="nav-link disabled">{{[3].text}}</a>
-
-                        </div>
-                        {{/each}}
-                    </div>
-                </div>
-
-
             </div>
         </section>
     </div>
