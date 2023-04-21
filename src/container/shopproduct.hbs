@@ -105,9 +105,20 @@
                 </div>
             </div>
         </div>
-
         {{/with}}
-    </div>
+        {{#with goodsOtherBlock}}
+        <div class="col-12">
+            <div class="row">
+                <div class="display-6 text-center mb-3">{{title}}</div>
+                {{>shopcard}}
+            </div>
+        </div>
+        {{/with}}
 
-    <hr class="my-5">
+
+        {{>shopaction}}
+        {{>shopfooter}}
+
+
+    </div>
 </main>

@@ -1,22 +1,7 @@
 <main class="p-5">
     <div class="row">
-        <div class="col-12">
-            {{#with navigation}}
-            <div class="card mt-5">
-                <div class="nav m-1">
-                    {{#each links}}
-                    <div class="nav-item">
-                        {{#if @last}}
-                        <a href="#" class="nav-link disabled">{{text}}</a>
-                        {{else}}
-                        <a href={{href}} class="nav-link">{{text}}</a>
-                        {{/if}}
-                    </div>
-                    {{/each}}
-                </div>
-            </div>
-            {{/with}}
-        </div>
+        {{>shopheader}}
+
         <div class="col-12 mt-5">
             {{#with newsBlock}}
             <h3 class="text-center">{{title}}</h3>
@@ -62,21 +47,7 @@
 
         <div class="col-12">
             <div class="row">
-                {{#each cards}}
-                <div class="col-4">
-                    <div class="card mb-3">
-                        <img class="card-img-top" src={{image}} alt="Product img">
-                        <div class="card-title">
-                            <p class="pt-3 ps-3">{{title}}
-                                {{#if isHot}}<span class="badge text-bg-success rounded-pill">
-                                    HOT!</span>{{/if}}
-                                {{#if isNew}}<span class="badge text-bg-danger rounded-pill">
-                                    Новая</span>{{/if}}</p>
-                        </div>
-                        <div class="card-body pt-0">{{description}}</div>
-                    </div>
-                </div>
-                {{/each}}
+                {{>shopcard}}
             </div>
         </div>
         {{/with}}
@@ -96,47 +67,8 @@
             </div>
             {{/with}}
         </div>
-
-
-        <hr class="m-3">
-
-
-        <div class="col-12 my-5">
-            {{#with service}}
-            <div class="card text-bg-success">
-                <h2 class="text-center mb-2">{{title}}</h2>
-                <p class="text-center">{{description}}</p>
-                {{#each buttons}}
-                <div class="text-center">
-                    <a href={{link}} class="btn btn-primary col-2 ms-2 mb-2">{{text}}</a>
-                    {{/each}}
-                </div>
-            </div>
-            {{/with}}
-        </div>
-
-
-        <hr class="m-3">
-
-
-        <div class="col-12">
-            <div class="row">
-                {{#each footer}}
-                <div class="col-2">
-                    <div class="nav flex-column">
-                        <div class="nav-item">
-                            {{#each this}}
-
-                            <a href={{link}} {{#if @last}} class="nav-link disabled" {{else}} class="nav-link" {{/if}}>
-                                {{text}}</a>
-
-                            {{/each}}
-                        </div>
-                    </div>
-                </div>
-                {{/each}}
-            </div>
-        </div>
+        {{>shopaction}}
+        {{>shopfooter}}
 
     </div>
 </main>
