@@ -1,0 +1,17 @@
+<div class="col-12">
+    {{#with navigation}}
+    <div class="card mt-5">
+        <div class="nav m-1">
+            {{#each links}}
+            <div class="nav-item">
+                {{#if @last}}
+                <a href="#" class="nav-link disabled">{{text}}</a>
+                {{else}}
+                <a href={{href}} class="nav-link">{{text}}</a>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    {{/with}}
+</div>
