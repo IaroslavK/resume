@@ -4,25 +4,7 @@
 
         <div class="col-12 mt-5">
             {{#with newsBlock}}
-            <h3 class="text-center">{{title}}</h3>
-            <div class="col-12">
-                <div class="row">
-                    {{#each cards}}
-                    <div class="col-3">
-                        <div class="card text-bg-dark my-2">
-                            <div class="card-header">
-                                {{title}}
-                                {{#if isTop}}<span class="badge text-bg-danger rounded-pill">
-                                    Топ</span>{{/if}}
-                                {{#if isNew}}<span class="badge text-bg-success rounded-pill">
-                                    новая</span>{{/if}}
-                            </div>
-                            <div class="card-body">{{description}}</div>
-                        </div>
-                    </div>
-                    {{/each}}
-                </div>
-            </div>
+            {{>shoppost}}
             {{/with}}
         </div>
 
@@ -68,6 +50,7 @@
             {{/with}}
         </div>
         {{>shopaction}}
+        <hr class="m-3">
         {{>shopfooter}}
 
     </div>
