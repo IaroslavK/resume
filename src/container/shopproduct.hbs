@@ -1,20 +1,7 @@
 <main class="p-5">
     <div class="row">
         {{>shopheader}}
-
-        <div class="col-12">
-            <ol class="breadcrumb my-5 ms-4">
-                {{#each breadcrumb}}
-                <li class="breadcrumb-item">
-                    {{#if url includeZero=true}}
-                    <a href={{url}}>{{name}}</a>
-                    {{else}}
-                    {{name}}
-                    {{/if}}
-                </li>
-                {{/each}}
-            </ol>
-        </div>
+        {{>breadcrumb}}
 
         {{#with productData}}
         <div class="col-6 pe-5">
@@ -117,6 +104,7 @@
 
 
         {{>shopaction}}
+        <hr class="m-3">
         {{>shopfooter}}
 
 
