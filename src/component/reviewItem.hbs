@@ -1,0 +1,54 @@
+{{#each reviewList}}
+<div class="card p-3 mb-5">
+    <div class="col-12">
+        <div class="card pt-2 ps-2">
+            {{#each title}}
+            {{#if @first}}
+            <p><b>{{this}}</b></p>
+            {{else}}
+            <p>{{this}}</p>
+            {{/if}}
+            {{/each}}
+            <hr class="my-0">
+            {{#with reviewBody}}
+            {{#with seller}}
+            <p>{{title}}: {{value}}</p>
+            {{/with}}
+            {{#with rating}}
+            <p>{{title}}: {{value}}</p>
+            {{/with}}
+            <p>{{text}}</p>
+            {{#with advantages}}
+            <p><b>{{title}}:</b><br>{{text}}</p>
+            {{/with}}
+            {{#with disadvantages}}
+            <p><b>{{title}}:</b><br>{{text}}</p>
+            {{/with}}
+
+            <div class="col-12 mb-2">
+                <div class="row">
+                    {{#each images}}
+                    <div class="col-1 ps-0 mx-4">
+
+                        <img src={{this}} alt="Just picktures">
+
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{#each coments}}
+        <div class="card mt-4 ms-4 me-0">
+            <div class="col-12">
+                <h5>{{userName}}</h5>
+                <p>{{date}}</p>
+                <p>{{text}}</p>
+            </div>
+        </div>
+        {{/each}}
+        {{/with}}
+
+    </div>
+</div>
+
+{{/each}}
