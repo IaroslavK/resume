@@ -3,94 +3,97 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 --}}
 
-<div>
-    {{#with web}}
+<div class="col-12">
+    <div class="row">
+        <div class="text-center ms-5 mt-5">
+            {{>title data="Web " big=true }}
+        </div>
+        <div class="card ms-5">
+            {{#with web}}
 
-    <head>
-        {{>title data="Web " big=true }}
-    </head>
-    <hr>
+            <div class="col-12">
+                <div class="text-center">
+                    {{>title data="languages" }}
+                </div>
+                <div class="card col-12 p-3">
+                    {{#each languages}}
 
-    <body>
-        {{>title data="languages: " }}
-        <ol>
-            {{#each languages}}
-            <li><b>{{name}}</b></li>
-            <section>
-                <ul>
-                    <li>Version: <b>{{version}}</b></li>
-                    <li>Description: <b>{{description}}</b></li>
+                    <div class="display-6">{{name}}</div>
 
-
-                    <li>
-                        {{#if elements}}
-                        Elements:
+                    <div class="card col-12">
                         <ul>
-                            <ol>
-                                {{#each elements}}
-
-                                <li><b>{{name}}</b> - {{description}}</li>
-
-                                Attributes:
+                            <li>Version: <b>{{version}}</b></li>
+                            <li>Description: <b>{{description}}</b></li>
+                            <li>
+                                {{#if elements}}
+                                Elements:
                                 <ul>
-                                    {{#each attributes}}
-                                    <li><b>{{name}}</b> - {{description}}</li>
-                                    {{/each}}
+                                    <ol>
+                                        {{#each elements}}
+
+                                        <li><b>{{name}}</b> - {{description}}</li>
+
+                                        Attributes:
+                                        <ul>
+                                            {{#each attributes}}
+                                            <li><b>{{name}}</b> - {{description}}</li>
+                                            {{/each}}
+                                        </ul>
+
+                                        {{/each}}
+                                    </ol>
+                                </ul>
+                                {{/if}}
+
+                                {{#if properties}}
+                                Properties:
+                                <ul>
+                                    <ol>
+                                        {{#each properties}}
+
+                                        <li><b>{{name}}</b> - {{description}}</li>
+
+                                        Values:
+                                        <ul>
+                                            {{#each values}}
+                                            <li><b>{{value}}</b> - {{description}}</li>
+                                            {{/each}}
+                                        </ul>
+
+                                        {{/each}}
+                                    </ol>
                                 </ul>
 
-                                {{/each}}
-                            </ol>
-                        </ul>
-                        {{/if}}
-
-                        {{#if properties}}
-                        Properties:
-                        <ul>
-                            <ol>
-                                {{#each properties}}
-
-                                <li><b>{{name}}</b> - {{description}}</li>
-
-                                Values:
+                                {{/if}}
+                                {{#if functions}}
+                                Functions:
                                 <ul>
-                                    {{#each values}}
-                                    <li><b>{{value}}</b> - {{description}}</li>
-                                    {{/each}}
+                                    <ol>
+                                        {{#each functions}}
+
+                                        <li><b>{{name}}</b> - {{description}}</li>
+
+                                        Parameters:
+                                        <ul>
+                                            {{#each parameters}}
+                                            <li><b>{{name}}({{type}})</b> - {{description}}</li>
+                                            {{/each}}
+                                        </ul>
+
+                                        {{/each}}
+                                    </ol>
                                 </ul>
-
-                                {{/each}}
-                            </ol>
+                                {{/if}}
+                            </li>
                         </ul>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
 
-                        {{/if}}
-                        {{#if functions}}
-                        Functions:
-                        <ul>
-                            <ol>
-                                {{#each functions}}
-
-                                <li><b>{{name}}</b> - {{description}}</li>
-
-                                Parameters:
-                                <ul>
-                                    {{#each parameters}}
-                                    <li><b>{{name}}({{type}})</b> - {{description}}</li>
-                                    {{/each}}
-                                </ul>
-
-                                {{/each}}
-                            </ol>
-                        </ul>
-                        {{/if}}
-                    </li>
-                </ul>
-            </section>
-            {{/each}}
-        </ol>
-    </body>
-
-
-    {{/with}}
+            {{/with}}
+        </div>
+    </div>
 </div>
 
 {{!--

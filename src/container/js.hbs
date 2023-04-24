@@ -3,82 +3,179 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
 --}}
 
-<div>
+<div class="col-12">
 
-    <head>
-        <h1>{{name}} <span class="badge bg-secondary">{{description}}</span></h1>
-        {{#with history}}
-        <h2> Year: <span class="badge bg-secondary">{{year}}</span></h2>
-        <h2> Founder: <span class="badge bg-secondary">{{founder}}</span></h2>
-        {{/with}}
-        <hr>
-    </head>
+    <div class="card p-3 text-bg-secondary">
+        <div class="col-12">
 
-    <body>
-        {{>title data='Types:' }}
-        <ul class="list-group">
-            {{#each types}}
-            <li class="list-group-item">{{this}}</li>
-            {{/each}}
-        </ul>
-        {{>title data='Syntax:' }}
-        {{#with syntax}}
-        <ul class="list-group">
-            <b>Variables:</b>
-            {{#each variables}}
-            <li class="list-group-item">{{this}}</li>
-            {{/each}}
-        </ul>
-        <ul class="list-group">
-            <b>Functions:</b>
-            {{#each functions}}
-            <li class="list-group-item">{{this}}</li>
-            {{/each}}
-        </ul>
-        <ul class="list-group">
-            <b>Conditionals:</b>
-            {{#each conditionals}}
-            <li class="list-group-item">{{this}}</li>
-            {{/each}}
-        </ul>
-        <ul class="list-group">
-            <b>Loops:</b>
-            {{#each loops}}
-            <li class="list-group-item">{{this}}</li>
-            {{/each}}
-        </ul>
-        <ul class="list-group">
-            <b>Classes:</b>
-            {{#each classes}}
-            <li class="list-group-item">{{this}}</li>
-            {{/each}}
-        </ul>
-        {{/with}}
-        {{>title data='Features:' }}
-        <ul class="list-group">
-            {{#each features}}
-            <li class="list-group-item">{{this}}</li>
-            {{/each}}
-        </ul>
-        {{>title data='Libraries:' }}
-        <ul class="list-group">
-            {{#each libraries}}
-            <li class="list-group-item">{{this}}</li>
-            {{/each}}
-        </ul>
-        {{>title data='Tools:' }}
-        <ul class="list-group">
-            {{#each tools}}
-            <li class="list-group-item">{{this}}</li>
-            {{/each}}
-        </ul>
-        {{>title data='Community:' }}
-        <ul class="list-group">
-            {{#each community}}
-            <li class="list-group-item">{{name}} - {{type}}</li>
-            {{/each}}
-        </ul>
-    </body>
+            <div class="col-12">
+                <div class="card text-bg-info">
+                    <div class="text-center">
+                        <h1>{{name}}</h1>
+                        <h2>{{description}}</h2>
+
+                        {{#with history}}
+                        <h4>year: <b>{{year}}</b></h4>
+                        <h4>founder: <b>{{founder}}</b></h4>
+                        {{/with}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card text-bg-primary mt-3">
+                        <div class="card-header text-center">
+                            <h5>Types</h5>
+                        </div>
+                        {{#each types}}
+                        <hr class="my-0">
+                        <div class="card-body text-center">{{this}}</div>
+
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card text-bg-primary mt-3">
+                        <div class="card-header text-center">
+                            <h5>Syntax</h5>
+                        </div>
+                        {{#each syntax}}
+                        <hr class="my-0">
+                        <div class="card-body text-center">{{@key}}: <b>{{this}}</b></div>
+
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card text-bg-primary mt-3">
+                        <div class="card-header text-center">
+                            <h5>Features</h5>
+                        </div>
+                        {{#each features}}
+                        <hr class="my-0">
+                        <div class="card-body text-center">{{this}}</div>
+
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card text-bg-primary mt-3">
+                        <div class="card-header text-center">
+                            <h5>Libraries</h5>
+                        </div>
+                        {{#each libraries}}
+                        <hr class="my-0">
+                        <div class="card-body text-center">{{this}}</div>
+
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card text-bg-primary mt-3">
+                        <div class="card-header text-center">
+                            <h5>Tools</h5>
+                        </div>
+                        {{#each tools}}
+                        <hr class="my-0">
+                        <div class="card-body text-center">{{this}}</div>
+
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card text-bg-primary mt-3">
+                        <div class="card-header text-center">
+                            <h5>Community</h5>
+                        </div>
+                        {{#each community}}
+                        <hr class="my-0">
+                        <div class="card-body text-center">{{type}}: <b>{{name}}</b></div>
+
+                        {{/each}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        {{!--
+
+        <head>
+            <h1>{{name}} <span class="badge bg-secondary">{{description}}</span></h1>
+            {{#with history}}
+            <h2> Year: <span class="badge bg-secondary">{{year}}</span></h2>
+            <h2> Founder: <span class="badge bg-secondary">{{founder}}</span></h2>
+            {{/with}}
+            <hr>
+        </head>
+
+        <body>
+            {{>title data='Types:' }}
+            <ul class="list-group">
+                {{#each types}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+            {{>title data='Syntax:' }}
+            {{#with syntax}}
+            <ul class="list-group">
+                <b>Variables:</b>
+                {{#each variables}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+            <ul class="list-group">
+                <b>Functions:</b>
+                {{#each functions}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+            <ul class="list-group">
+                <b>Conditionals:</b>
+                {{#each conditionals}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+            <ul class="list-group">
+                <b>Loops:</b>
+                {{#each loops}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+            <ul class="list-group">
+                <b>Classes:</b>
+                {{#each classes}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+            {{/with}}
+            {{>title data='Features:' }}
+            <ul class="list-group">
+                {{#each features}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+            {{>title data='Libraries:' }}
+            <ul class="list-group">
+                {{#each libraries}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+            {{>title data='Tools:' }}
+            <ul class="list-group">
+                {{#each tools}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+            {{>title data='Community:' }}
+            <ul class="list-group">
+                {{#each community}}
+                <li class="list-group-item">{{name}} - {{type}}</li>
+                {{/each}}
+            </ul>
+        </body> --}}
+    </div>
 
 </div>
 
