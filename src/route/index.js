@@ -40,11 +40,43 @@ var footer = {
 // router.get Створює нам один ентпоїнт
 
 //           ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/', function (req, res) {
+router.get('/index', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
+  res.render('index', {
+    layout: 'index',
+    page: {
+      title: 'Page | Index',
+    },
+
+    me: {
+      name: 'Yaroslav',
+      surname: 'Khaidakin',
+    },
+
+    resume: 'Resume project',
+    header: 'Cписок сторінок',
+    text: 'Тут вам потрібно написати інформацію про ваш проєкт. Поки що можна написати будь-який текст',
+    buttons: [
+      {
+        text: 'Summary',
+        link: '/summary',
+      },
+      {
+        text: 'Skills',
+        link: '/skills',
+      },
+      {
+        text: 'Education',
+        link: '/education',
+      },
+      {
+        text: 'Work',
+        link: '/work',
+      },
+    ],
+  })
   //                  ↑↑ сюди вводимо JSON дані
 })
 
@@ -268,7 +300,7 @@ router.get('/person', function (req, res) {
   res.render('person', {
     layout: 'basic',
     page: {
-      title: 'Resume | Person',
+      title: 'Page | Person',
     },
 
     person: {
@@ -373,7 +405,7 @@ router.get('/bio', function (req, res) {
   res.render('bio', {
     layout: 'basic',
     page: {
-      title: 'Resume | Bio',
+      title: 'Page | Bio',
     },
 
     name: 'Albert Einstein',
@@ -474,7 +506,7 @@ router.get('/program', function (req, res) {
   res.render('program', {
     layout: 'basic',
     page: {
-      title: 'Resume | Program',
+      title: 'Page | Program',
     },
 
     program: {
@@ -564,7 +596,7 @@ router.get('/web', function (req, res) {
   res.render('web', {
     layout: 'basic',
     page: {
-      title: 'Resume | Program',
+      title: 'Page | Web',
     },
 
     web: {
@@ -700,7 +732,7 @@ router.get('/js', function (req, res) {
   res.render('js', {
     layout: 'basic',
     page: {
-      title: 'Resume | Js',
+      title: 'Page | Js',
     },
 
     name: 'JavaScript',
@@ -787,7 +819,7 @@ router.get('/car', function (req, res) {
   res.render('car', {
     layout: 'basic',
     page: {
-      title: 'Resume | Car',
+      title: 'Page | Car',
     },
 
     make: 'Toyota',
@@ -893,7 +925,7 @@ router.get('/mac', function (req, res) {
   res.render('mac', {
     layout: 'basic',
     page: {
-      title: 'Resume | Mac',
+      title: 'Page | Mac',
     },
 
     name: 'Apple MacBook Pro',
@@ -988,7 +1020,7 @@ router.get('/facebook', function (req, res) {
   res.render('facebook', {
     layout: 'basic',
     page: {
-      title: 'Resume | Facebook',
+      title: 'Page | Facebook',
     },
 
     name: 'Facebook',
@@ -1169,7 +1201,7 @@ router.get('/task21', function (req, res) {
   res.render('task21', {
     layout: 'basic',
     page: {
-      title: 'Resume | Task21',
+      title: 'Page | Task21',
     },
 
     heading: {
@@ -1247,7 +1279,7 @@ router.get('/task22', function (req, res) {
   res.render('task22', {
     layout: 'basic',
     page: {
-      title: 'Resume | Task22',
+      title: 'Page | Task22',
     },
 
     page_header: {
@@ -1314,7 +1346,7 @@ router.get('/task31', function (req, res) {
   res.render('task31', {
     layout: 'basic',
     page: {
-      title: 'Resume | Task31',
+      title: 'Page | Task31',
     },
 
     navigation: {
@@ -1577,7 +1609,7 @@ router.get('/shophome', function (req, res) {
   res.render('shophome', {
     layout: 'shop',
     page: {
-      title: 'Resume | Shophome',
+      title: 'Shop | Shophome',
     },
 
     navigation: {
@@ -1869,7 +1901,7 @@ router.get('/list', function (req, res) {
   res.render('list', {
     layout: 'basic',
     page: {
-      title: 'Resume | List',
+      title: 'Page | List',
     },
 
     list: [
@@ -1909,7 +1941,7 @@ router.get('/shopproduct', function (req, res) {
   res.render('shopproduct', {
     layout: 'shop',
     page: {
-      title: 'Resume | Shopproduct',
+      title: 'Shop | Shopproduct',
     },
 
     navigation: {
@@ -2131,7 +2163,7 @@ router.get('/shopnews', function (req, res) {
   res.render('shopnews', {
     layout: 'shop',
     page: {
-      title: 'Resume | Shopnews',
+      title: 'Shop | Shopnews',
     },
 
     navigation: {
@@ -2347,7 +2379,7 @@ router.get('/shoporder', function (req, res) {
   res.render('shoporder', {
     layout: 'shop',
     page: {
-      title: 'Resume | Shoporder',
+      title: 'Shop | Shoporder',
     },
 
     navigation: {
@@ -2720,7 +2752,7 @@ router.get('/shopcart', function (req, res) {
   res.render('shopcart', {
     layout: 'shop',
     page: {
-      title: 'Resume | Shopcart',
+      title: 'Shop | Shopcart',
     },
 
     navigation: {
@@ -2974,7 +3006,7 @@ router.get('/shopprofile', function (req, res) {
   res.render('shopprofile', {
     layout: 'shop',
     page: {
-      title: 'Resume | Shopprofile',
+      title: 'Shop | Shopprofile',
     },
 
     navigation: {
@@ -3274,7 +3306,7 @@ router.get('/shopreview', function (req, res) {
   res.render('shopreview', {
     layout: 'shop',
     page: {
-      title: 'Resume | Shopreview',
+      title: 'Shop | Shopreview',
     },
 
     navigation: {
@@ -3568,7 +3600,7 @@ router.get('/shopcatalog', function (req, res) {
   res.render('shopcatalog', {
     layout: 'shop',
     page: {
-      title: 'Resume | Shopcatalog',
+      title: 'Shop | Shopcatalog',
     },
 
     navigation: {

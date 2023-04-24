@@ -4,23 +4,24 @@
 --}}
 
 
-<div>
+<div class="col-12">
+    <div class="row">
+        <div class="card m-4">
+            <div class="card-header ">
+                <div class="text-center">
+                    <h1>{{name}}</h1>
+                    <h2>{{description}}</h2>
+                </div>
+                <h4>price: <b>{{price}}</b></h4>
+                <h4>category: <b>{{category}}</b></h4>
+            </div>
+            <div class="text-center">
+                <h2><b>Features</b></h2>
+            </div>
+            {{#with features}}
 
-    <head>
-        <h1>{{name}}</h1>
-        {{>title data=description big=true }}
-        {{>title data=price}}
-        {{>title data=category}}
-        <br>
-    </head>
-
-    <body>
-        <h2><b>Features:</b></h2>
-        <hr>
-        {{#with features}}
-        <ul>
             {{#with processor}}
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item active" aria-current="true">Processor</li>
                 <li class="list-group-item">Brand: <b>{{brand}}</b></li>
                 <li class="list-group-item">Model: <b>{{model}}</b></li>
@@ -30,7 +31,7 @@
             </ul>
             {{/with}}
             {{#with memory}}
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item active" aria-current="true">Memory</li>
                 <li class="list-group-item">Type: <b>{{type}}</b></li>
                 <li class="list-group-item">Size: <b>{{size}}</b></li>
@@ -38,14 +39,14 @@
             </ul>
             {{/with}}
             {{#with storage}}
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item active" aria-current="true">Storage</li>
                 <li class="list-group-item">Type: <b>{{type}}</b></li>
                 <li class="list-group-item">Size: <b>{{size}}</b></li>
             </ul>
             {{/with}}
             {{#with display}}
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item active" aria-current="true">Display</li>
                 <li class="list-group-item">Size: <b>{{size}}</b></li>
                 <li class="list-group-item">Resolution: <b>{{resolution}}</b></li>
@@ -56,7 +57,7 @@
             </ul>
             {{/with}}
             {{#with graphics}}
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item active" aria-current="true">Graphics</li>
                 <li class="list-group-item">Brand: <b>{{brand}}</b></li>
                 <li class="list-group-item">Model: <b>{{model}}</b></li>
@@ -65,50 +66,57 @@
             {{/with}}
 
             {{#each ports}}
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item active" aria-current="true">Ports</li>
                 <li class="list-group-item">Type: <b>{{type}}</b></li>
                 <li class="list-group-item">Count: <b>{{count}}</b></li>
-                <li class="list-group-item">{{#if features}}Features:{{else}}{{/if}} <b>
-                        <ul>{{#each features}}<li>{{this}}</li>{{/each}}</ul>
-                    </b></li>
+                {{#if features}}<li class="list-group-item">Features:
+                    <ul>
+                        {{#each features}}
+                        <li><b>{{this}}</b></li>
+                        {{/each}}
+                    </ul>
+                </li>
+                {{/if}}
             </ul>
             {{/each}}
             {{#with battery}}
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item active" aria-current="true">Battery</li>
                 <li class="list-group-item">Type: <b>{{type}}</b></li>
                 <li class="list-group-item">Capacity: <b>{{capacity}}</b></li>
                 <li class="list-group-item">Life: <b>{{life}}</b></li>
             </ul>
             {{/with}}
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item active" aria-current="true">Weight</li>
                 <li class="list-group-item">Weight: <b>{{weight}}</b></li>
             </ul>
             {{#with dimensions}}
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item active" aria-current="true">Dimensions</li>
                 <li class="list-group-item">height: <b>{{height}}</b></li>
                 <li class="list-group-item">Width: <b>{{width}}</b></li>
                 <li class="list-group-item">Depth: <b>{{depth}}</b></li>
             </ul>
             {{/with}}
-            <ul class="list-group">
+            <ul class="list-group mb-3">
                 <li class="list-group-item active" aria-current="true">Operating system</li>
                 <li class="list-group-item">Operating system: <b>{{operating_system}}</b></li>
             </ul>
-            {{#each accessories}}
-            <ul class="list-group">
+
+            <ul class="list-group mb-3">
                 <li class="list-group-item active" aria-current="true">Accessories</li>
-                <li class="list-group-item">Type: <b>{{name}} - {{price}}</b></li>
+                {{#each accessories}}
+                <li class="list-group-item">{{name}}: <b>{{price}}$</b></li>
+                {{/each}}
             </ul>
-            {{/each}}
-        </ul>
-        {{/with}}
 
-    </body>
 
+            {{/with}}
+
+        </div>
+    </div>
 </div>
 
 {{!--

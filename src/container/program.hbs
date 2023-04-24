@@ -3,105 +3,110 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 --}}
 
-<div>
-    {{#with program}}
+<div class="col-12">
+    <div class="row">
+        {{#with program}}
 
-    <head>
+        <div class="card col-12 m-5 text-bg-warning">
+            <h1>Excursion</h1>
 
-        <h1>Excursion</h1>
-        <div>
-            <ul>
-                {{#with excursion}}
-                <li>Name:<b>{{name}}</b></li>
-                <li>Location:
-                    {{#with location}}
-                    <b>{{city}}, {{country}}</b>
-                    {{/with}}
-                </li>
-                <li>Date: <b>{{date}}</b></li>
-                {{/with}}
-            </ul>
-            <br>
-            <hr>
+            <div>
+                <ul>
+                    {{#with excursion}}
+                    <li>Name:<b>{{name}}</b></li>
+                    <li>Location:
+                        {{#with location}}
+                        <b>{{city}}, {{country}}</b>
+                        {{/with}}
+                    </li>
+                    <li>Date: <b>{{date}}</b></li>
+                </ul>
+            </div>
         </div>
-    </head>
 
 
-    <body>
-        {{>title data='Program:' big=true}}
-        <hr>
-        <div>
 
-            <ul>
-                {{#each excursion.program}}
-                <li> {{>title data=name }}</li>
-                <p><b>Type:</b> {{type}}</p>
-                <p><b>Duration:</b> {{duration}}</p>
-                <p><b>Details:</b>
-                    {{#with details}}
-                    {{#if museum}}
-                    {{#with museum}}
-                <ul>
-                    <p><b>Museum:</b></p>
-                    <p>Name: <b>{{name}}</b></p>
-                    <p>Location:
-                        {{#with location}}
-                        <b>{{address}}, {{city}}, {{country}}</b>
+        <div class="col-12 ms-5">
+            <div class="text-center">
+                {{>title data='Program' big=true}}
+            </div>
+        </div>
+
+        <div class="col-12 ms-5">
+            <div class="row">
+                {{#each program}}
+                <div class="col-6">
+                    <div class="card p-3">
+                        <div class="text-center">
+                            {{>title data=name }}
+                        </div>
+                        <p><b>Type:</b> {{type}}</p>
+                        <p><b>Duration:</b> {{duration}}</p>
+                        <p><b>Details:</b>
+                            {{#with details}}
+                            {{#if museum}}
+                            {{#with museum}}
+                        <ul>
+                            <div class="text-center"><b>Museum</b></div>
+                            <p>Name: <b>{{name}}</b></p>
+                            <p>Location:
+                                {{#with location}}
+                                <b>{{address}}, {{city}}, {{country}}</b>
+                                {{/with}}
+                            </p>
+                            <p>Exhibits:
+                            <ul>
+                                {{#each exhibits}}
+                                <li>Name:<b>{{name}}</b></li>
+                                {{#if artist}}<p>Artist:<b>{{artist}}</b></p>{{/if}}
+                                <p>Description:<b>{{description}}</b></p>
+                                {{#if audio_guide}}<p>Audio guide:<b>Yes</b></p>{{/if}}
+
+                                {{/each}}
+                            </ul>
+                            </p>
+                        </ul>
                         {{/with}}
-                    </p>
-                    <p>Exhibits:
-                    <ul>
-                        {{#each exhibits}}
-                        <li>Name:<b>{{name}}</b></li>
-                        {{#if artist}}<p>Artist:<b>{{artist}}</b></p>{{/if}}
-                        <p>Description:<b>{{description}}</b></p>
-                        {{#if audio_guide}}<p>Audio guide:<b>Yes</b></p>{{/if}}
+                        {{else}}
+                        {{#with venue}}
+                        <ul>
+                            <div class="text-center"><b>Venue</b></div>
+                            <p>Name: <b>{{name}}</b></p>
+                            <p>Location:
+                                {{#with location}}
+                                <b>{{address}}, {{city}}, {{country}}</b>
+                                {{/with}}
+                            </p>
+                            {{/with}}
+                            <p>Performers:
+                            <ul>
+                                {{#each performers}}
+                                <li>Name:<b>{{name}}</b></li>
+                                <p>Type:<b>{{type}}</b></p>
+                                {{/each}}
+                            </ul>
+                            </p>
+                        </ul>
 
-                        {{/each}}
-                    </ul>
-                    </p>
-                </ul>
-                {{/with}}
-                {{else}}
-                {{#with venue}}
-                <ul>
-                    <p><b>Venue:</b></p>
-                    <p>Name: <b>{{name}}</b></p>
-                    <p>Location:
-                        {{#with location}}
-                        <b>{{address}}, {{city}}, {{country}}</b>
+                        {{/if}}
+                        <p><b>Guide:</b></p>
+                        <ul>
+                            {{#with guide}}
+                            <li>Name: <b>{{name}}</b></li>
+                            <li>Language: <b>{{language}}</b></li>
+                            <li>Rating: <b>{{rating}}</b></li>
+                            {{/with}}
+                        </ul>
                         {{/with}}
-                    </p>
-                    {{/with}}
-                    <p>Performers:
-                    <ul>
-                        {{#each performers}}
-                        <li>Name:<b>{{name}}</b></li>
-                        <p>Type:<b>{{type}}</b></p>
-                        {{/each}}
-                    </ul>
-                    </p>
-                </ul>
-
-                {{/if}}
-                <p><b>Guide:</b></p>
-                <ul>
-                    {{#with guide}}
-                    <li>Name: <b>{{name}}</b></li>
-                    <li>Language: <b>{{language}}</b></li>
-                    <li>Rating: <b>{{rating}}</b></li>
-                    {{/with}}
-                </ul>
-                <hr>
-                {{/with}}
-                </li>
+                        </li>
+                    </div>
+                </div>
                 {{/each}}
-            </ul>
+            </div>
         </div>
-
-    </body>
-
-    {{/with}}
+        {{/with}}
+        {{/with}}
+    </div>
 </div>
 {{!--
 Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
